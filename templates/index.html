@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Maker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Character Maker</h1>
+    <p class="tagline">Quick character generation for webcomics</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel form-panel">
+      <h2>New Character</h2>
+      <form id="generate-form">
+        <div class="field">
+          <label for="species">Species</label>
+          <select id="species" name="species"></select>
+        </div>
+
+        <div class="field">
+          <label for="race">Race</label>
+          <select id="race" name="race"></select>
+        </div>
+
+        <div class="field">
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender"></select>
+        </div>
+
+        <fieldset class="field">
+          <legend>Age</legend>
+          <div class="mode-toggle">
+            <label><input type="radio" name="age_mode" value="random" checked> Random</label>
+            <label><input type="radio" name="age_mode" value="exact"> Exact</label>
+          </div>
+          <select id="age_category" name="age_category"></select>
+          <input id="age_value" name="age_value" type="number" min="0" placeholder="Age in years" class="hidden">
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Height</legend>
+          <div class="mode-toggle">
+            <label><input type="radio" name="height_mode" value="random" checked> Random</label>
+            <label><input type="radio" name="height_mode" value="exact"> Exact</label>
+          </div>
+          <select id="height_category" name="height_category"></select>
+          <input id="height_value" name="height_value" type="number" min="1" placeholder="Height in inches" class="hidden">
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Name</legend>
+          <div class="mode-toggle">
+            <label><input type="radio" name="name_mode" value="random" checked> Random</label>
+            <label><input type="radio" name="name_mode" value="exact"> Exact</label>
+          </div>
+          <input id="name_value" name="name_value" type="text" placeholder="Character name" class="hidden">
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Appearance</legend>
+          <label class="checkbox-label"><input type="checkbox" id="include_appearance" checked> Include appearance</label>
+          <div id="appearance-options">
+            <div class="mode-toggle">
+              <label><input type="radio" name="appearance_mode" value="random" checked> Random</label>
+              <label><input type="radio" name="appearance_mode" value="manual"> Manual</label>
+            </div>
+            <div id="appearance-manual-fields" class="manual-fields hidden">
+              <input id="hair_color" type="text" placeholder="Hair color (e.g. Auburn)">
+              <input id="eye_color" type="text" placeholder="Eye color (e.g. Green)">
+              <input id="skin_tone" type="text" placeholder="Skin tone (e.g. Tan)">
+              <input id="build" type="text" placeholder="Build (e.g. Athletic)">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Personality &amp; Quirk</legend>
+          <label class="checkbox-label"><input type="checkbox" id="include_personality" checked> Include personality &amp; quirk</label>
+          <div id="personality-options">
+            <div class="mode-toggle">
+              <label><input type="radio" name="personality_mode" value="random" checked> Random</label>
+              <label><input type="radio" name="personality_mode" value="manual"> Manual</label>
+            </div>
+            <div id="personality-manual-fields" class="manual-fields hidden">
+              <input id="personality_trait" type="text" placeholder="Personality trait (e.g. Stubborn)">
+              <input id="quirk" type="text" placeholder="Quirk (e.g. Hums when nervous)">
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn primary">Generate Character</button>
+      </form>
+    </section>
+
+    <section class="panel result-panel">
+      <h2>Result</h2>
+      <div id="result-empty" class="empty-state">Generate a character to see it here.</div>
+      <div id="result-card" class="character-card hidden"></div>
+      <div id="result-actions" class="result-actions hidden">
+        <button id="save-btn" class="btn secondary">Save to Gallery</button>
+        <button id="regenerate-btn" class="btn">Generate Another</button>
+      </div>
+    </section>
+
+    <section class="panel gallery-panel">
+      <h2>Gallery</h2>
+      <div id="gallery-empty" class="empty-state">No saved characters yet.</div>
+      <div id="gallery-list" class="gallery-list"></div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

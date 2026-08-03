@@ -1,0 +1,268 @@
+:root {
+  --ink: #1a1a1a;
+  --paper: #faf6ec;
+  --panel: #ffffff;
+  --accent: #e0392f;
+  --accent-dark: #a8241c;
+  --accent-2: #2f6fe0;
+  --border: #1a1a1a;
+  --muted: #6b6b6b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Trebuchet MS', Arial, sans-serif;
+  background-color: var(--paper);
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 14px 14px;
+  color: var(--ink);
+}
+
+.app-header {
+  text-align: center;
+  padding: 28px 16px 18px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1.5px var(--ink);
+  color: var(--accent);
+  text-shadow: 3px 3px 0 var(--ink);
+}
+
+.tagline {
+  margin: 6px 0 0;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.gallery-panel {
+  grid-column: 1 / -1;
+}
+
+.panel {
+  background: var(--panel);
+  border: 3px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 20px;
+}
+
+.panel h2 {
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 8px;
+}
+
+.field {
+  margin-bottom: 16px;
+  border: none;
+  padding: 0;
+}
+
+.field legend {
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+select,
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.mode-toggle {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.mode-toggle label {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.checkbox-label {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.manual-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.btn {
+  cursor: pointer;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 1rem;
+  background: var(--paper);
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.05s ease-in-out;
+}
+
+.btn:hover {
+  transform: translate(-1px, -1px);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+  width: 100%;
+}
+
+.btn.secondary {
+  background: var(--accent-2);
+  color: #fff;
+}
+
+.empty-state {
+  color: var(--muted);
+  font-style: italic;
+  padding: 20px 0;
+}
+
+.character-card {
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.character-card h3 {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+  color: var(--accent-dark);
+}
+
+.character-card .subtitle {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.trait-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+}
+
+.trait-grid .trait {
+  font-size: 0.95rem;
+}
+
+.trait-grid .trait strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.character-card .quirk-line {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+  font-style: italic;
+}
+
+.result-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.gallery-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.gallery-card {
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+  background: var(--paper);
+}
+
+.gallery-card h4 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  color: var(--accent-dark);
+}
+
+.gallery-card p {
+  margin: 2px 0;
+  font-size: 0.85rem;
+}
+
+.gallery-card .delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: 2px solid var(--border);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  line-height: 1;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
